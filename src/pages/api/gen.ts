@@ -5,14 +5,17 @@ import { chat } from '@/utils/llm';
 // Create a next-connect handler
 const router = createRouter<NextApiRequest, NextApiResponse>();
 
-async function generate(words: string): Promise<{ result: string, chineseResult: string, englishResult: string }> {
+async function generate(words: string, jokeType: string = "苏联笑话"): Promise<{ result: string, chineseResult: string, englishResult: string }> {
   const prompt = `
 <instruction>
-你是一个英语学习助手，你负责为用户生成一个苏联笑话，但是保留指定单词的英文格式。
-  - step1: 生成中英文的苏联笑话。
+你是一个英语学习助手，你负责为用户生成一个${jokeType}，但是保留指定单词的英文格式。
+  - step1: 生成中英文的${jokeType}。
   - step2: 从上一步的中文结果中，按指定单词的顺序，将英文单词翻译成中文。
   - step3: 从上一步的结果中，检查中文和英文单词是否正确。其中中文单词必须是出现在中文结果中。如果用户输入的单词是在词组中，保留词组的格式。
 输出格式参考output_example。输出格式为xml格式，最终结果放在result里。
+注意，例子都是苏联笑话，你应该生成指定的${jokeType}。
+注意，例子都是苏联笑话，你应该生成指定的${jokeType}。
+注意，例子都是苏联笑话，你应该生成指定的${jokeType}。
 </instruction>
 <input_example1>
 run,walk,ride bicycle,sit,hike
@@ -126,12 +129,12 @@ function getSection(result: string, name: string): string {
 
 router.post(async (req, res) => {
   try {
-    const { input } = req.body;
+    const { input, jokeType } = req.body;
     if (!input) {
       return res.status(400).json({ error: 'input is required' });
     }
 
-    const result = await generate(input);
+    const result = await generate(input, jokeType);
     res.status(200).json(result);
   } catch (error) {
     console.log(error);
