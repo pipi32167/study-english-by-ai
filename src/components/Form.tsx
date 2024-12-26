@@ -5,6 +5,7 @@ export default function Home() {
   const [inputValue, setInputValue] = useState("");
   const [result, setResult] = useState("");
   const [englishResult, setEnglishResult] = useState("");
+  const [chineseResult, setChineseResult] = useState(""); // New state for Chinese result
   const [loading, setLoading] = useState(false);
   const [showOverlay, setShowOverlay] = useState(true);
 
@@ -22,6 +23,7 @@ export default function Home() {
       const data = await response.json();
       setResult(data.result);
       setEnglishResult(data.englishResult); // Assuming the API returns englishResult
+      setChineseResult(data.chineseResult); // Assuming the API returns chineseResult
       setShowOverlay(true);
     } catch (error) {
       console.error('Error:', error);
@@ -59,15 +61,20 @@ export default function Home() {
             </div>
           )}
           {!showOverlay && (
-            <p>{result}</p>
+            <p className="text-gray-700">{chineseResult}</p>
           )}
         </div>
       )}
       {result && (
         <div className="relative mt-4 p-4 border rounded bg-gray-100 shadow-md max-w-md w-full">
-          <p className="text-gray-700">{englishResult}</p>
+          <p className="text-gray-700">{result}</p>
         </div>
       )}
+      {/* {result && (
+        <div className="relative mt-4 p-4 border rounded bg-gray-100 shadow-md max-w-md w-full">
+          <p className="text-gray-700">{englishResult}</p>
+        </div>
+      )} */}
       <form onSubmit={handleSubmit} className="flex flex-col gap-4 bg-white p-6 rounded shadow-lg max-w-md w-full">
         <div className="flex items-center gap-2">
           <button
