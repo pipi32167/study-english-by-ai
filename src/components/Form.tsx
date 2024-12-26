@@ -3,6 +3,7 @@ import { useState } from "react";
 
 export default function Home() {
   const [inputValue, setInputValue] = useState("");
+  const [jokeType, setJokeType] = useState("苏联笑话"); // New state for joke type
   const [result, setResult] = useState("");
   const [englishResult, setEnglishResult] = useState("");
   const [chineseResult, setChineseResult] = useState(""); // New state for Chinese result
@@ -19,7 +20,7 @@ export default function Home() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ input: inputValue }),
+        body: JSON.stringify({ input: inputValue, jokeType }), // Include jokeType in the request body
       });
       const data = await response.json();
       setResult(data.result);
@@ -51,7 +52,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-8 bg-gray-50">
-      <h1 className="text-2xl font-bold mb-4">苏联笑话生成器</h1>
+      <h1 className="text-2xl font-bold mb-4">{jokeType}生成器</h1>
       {result && (
         <div className="relative mt-4 p-4 border rounded bg-gray-100 shadow-md max-w-md w-full">
           {showOverlay && (
@@ -94,6 +95,15 @@ export default function Home() {
             placeholder="Enter something"
           />
         </div>
+        <select
+          value={jokeType}
+          onChange={(e) => setJokeType(e.target.value)}
+          className="border p-2 rounded w-full"
+        >
+          <option value="苏联笑话">苏联笑话</option>
+          <option value="经济学家笑话">经济学家笑话</option>
+          <option value="程序员笑话">程序员笑话</option>
+        </select>
         <button
           type="submit"
           className="bg-blue-500 text-white p-2 rounded hover:bg-blue-700 transition duration-300"
