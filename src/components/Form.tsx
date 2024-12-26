@@ -4,7 +4,7 @@ import { useState } from "react";
 export default function Home() {
   const [inputValue, setInputValue] = useState("");
   const [result, setResult] = useState("");
-  const [englishResult, setEnglishResult] = useState("");
+  // const [englishResult, setEnglishResult] = useState("");
   const [chineseResult, setChineseResult] = useState(""); // New state for Chinese result
   const [loading, setLoading] = useState(false);
   const [showOverlay, setShowOverlay] = useState(true);
@@ -22,7 +22,7 @@ export default function Home() {
       });
       const data = await response.json();
       setResult(data.result);
-      setEnglishResult(data.englishResult); // Assuming the API returns englishResult
+      // setEnglishResult(data.englishResult); // Assuming the API returns englishResult
       setChineseResult(data.chineseResult); // Assuming the API returns chineseResult
       setShowOverlay(true);
     } catch (error) {
