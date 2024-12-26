@@ -59,7 +59,7 @@ export default function Home() {
               className="absolute inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center cursor-pointer"
               onClick={() => setShowOverlay(false)}
             >
-              <span className="text-white text-lg">点击查看结果</span>
+              <span className="text-white text-lg">点击查看纯中文</span>
             </div>
           )}
           {!showOverlay && (
