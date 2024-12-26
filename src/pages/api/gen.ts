@@ -88,6 +88,28 @@ candle, ownership, incentive, identical, reasonably
     <chinese_words>蜡烛,拥有,动力,一样,相当</chinese_words>
   </step3_fixed>
 </ouput_example3>
+
+<input_example4>
+accuracy, deadline, signature, subsequent, devote
+</input_example4>
+<output_example4>
+  <step1>
+    <english>
+      An economist was asked to predict the accuracy of his economic forecasts. He replied, "I'm 100% certain about my predictions, but I can't guarantee their accuracy." His colleague chimed in, "That's why we always set a deadline for our reports. By the time anyone checks our predictions, we've already moved on to subsequent forecasts!" The first economist nodded, "Indeed. We devote so much time to making new predictions that we never have to face the consequences of our old ones. Just sign here to confirm you understand the risks!"
+    </english>
+    <chinese>
+      一位经济学家被要求预测他的经济预测的准确性。他回答说："我对我的预测100%确定，但我不能保证它们的准确性。"他的同事插话说："这就是为什么我们总是为我们的报告设定截止日期。等到有人检查我们的预测时，我们已经转向后续的预测了！"第一位经济学家点头说："确实如此。我们投入了这么多时间来做新的预测，以至于我们永远不用面对旧预测的后果。在这里签个名，确认你理解风险就行了！"
+    </chinese>
+  </step1>
+  <step2_translated>
+    <english_words>accuracy, deadline, signature, subsequent, devote</english_words>
+    <chinese_words>准确性,截止日期,签名,后续的,投入</chinese_words>
+  </step2_translated>
+  <step3_fixed>
+    <english_words>accuracy, deadline, signature, subsequent, devote</english_words>
+    <chinese_words>准确性,截止日期,签个名,后续,投入</chinese_words>
+  </step3_fixed>
+</output_example4>
 <input>
   ${words}
 </input>`;
