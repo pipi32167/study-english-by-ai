@@ -103,6 +103,9 @@ export default function Home() {
           <option value="苏联笑话">苏联笑话</option>
           <option value="经济学家笑话">经济学家笑话</option>
           <option value="程序员笑话">程序员笑话</option>
+          <option value="禅师笑话">禅师笑话</option>
+          <option value="英式没品笑话">英式没品笑话</option>
+          <option value="Reddit-style joke">Reddit-style joke</option>
         </select>
         <button
           type="submit"
