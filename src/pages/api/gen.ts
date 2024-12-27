@@ -111,6 +111,28 @@ accuracy, deadline, signature, subsequent, devote
     <chinese_words>准确性,截止日期,签个名,后续,投入</chinese_words>
   </step3_fixed>
 </output_example4>
+
+<input_example5>
+supportive, escalate, somebody
+</input_example5>
+<output_example4>
+  <step1>
+    <english>
+      In Soviet Russia, a worker complains to his boss, "Comrade, my colleague is not supportive of my work, and he keeps escalating every little problem to management!" The boss sighs, "Comrade, somebody has to take responsibility for the failures of the system.  It's easier to blame somebody else than to fix the problem."
+    </english>
+    <chinese>
+      在苏联俄罗斯，一个工人向他的老板抱怨：“同志，我的同事不支持我的工作，他总是把每一个小问题都升级到管理层！”老板叹了口气：“同志，总得有某人为体制的失败负责。责备别人比解决问题更容易。”
+    </chinese>
+  </step1>
+  <step2_translated>
+    <english_words>supportive, escalate, somebody</english_words>
+    <chinese_words>支持的,升级,某人</chinese_words>
+  </step2_translated>
+  <step3_fixed>
+    <english_words>supportive of, escalate, somebody</english_words>
+    <chinese_words>支持,升级,某人</chinese_words>
+  </step3_fixed>
+</output_example4>
 <input>
   ${words}
 </input>`;
@@ -120,10 +142,10 @@ accuracy, deadline, signature, subsequent, devote
   console.log('result', result);
   const englishResult = getSection(result, 'english');
   const chineseResult = getSection(result, 'chinese');
-  const translatedResult = getSection(result, 'step3_fixed').split(',').map(word => word.trim());
+  const translatedResult = getSection(result, 'step3_fixed');
   console.log('translatedResult', translatedResult);
-  const englishWords = getSection(result, 'english_words').split(',').map(word => word.trim());
-  const chineseWords = getSection(result, 'chinese_words').split(',').map(word => word.trim());
+  const englishWords = getSection(translatedResult, 'english_words').split(',').map(word => word.trim());
+  const chineseWords = getSection(translatedResult, 'chinese_words').split(',').map(word => word.trim());
   console.log('englishWords', englishWords);
   console.log('chineseWords', chineseWords);
   result = chineseResult;
