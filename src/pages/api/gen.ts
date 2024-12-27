@@ -123,7 +123,7 @@ accuracy, deadline, signature, subsequent, devote
 <input_example5>
 supportive, escalate, somebody
 </input_example5>
-<output_example4>
+<output_example5>
   <step1>
     <english>
       In Soviet Russia, a worker complains to his boss, "Comrade, my colleague is not supportive of my work, and he keeps escalating every little problem to management!" The boss sighs, "Comrade, somebody has to take responsibility for the failures of the system.  It's easier to blame somebody else than to fix the problem."
@@ -141,7 +141,7 @@ supportive, escalate, somebody
     <english_words>supportive of, escalate, somebody</english_words>
     <chinese_words>支持,升级,某人</chinese_words>
   </step3_fixed>
-</output_example4>
+</output_example5>
 <input>
   ${words}
 </input>`;
