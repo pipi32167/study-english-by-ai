@@ -142,6 +142,53 @@ supportive, escalate, somebody
     <chinese_words>支持,升级,某人</chinese_words>
   </step3_fixed>
 </output_example5>
+
+<input_example6>
+closure, drum, she
+</input_example6>
+<output_example6>
+  <step1>
+    <english>
+      Why did the drummer's girlfriend break up with him? She couldn't handle his constant drum solos and his inability to achieve closure. In the end, she said, "I'm sick of you beating around the bush... and everything else!"
+    </english>
+    <chinese>
+      鼓手的女朋友为什么和他分手？她无法忍受他不断的鼓独奏和无法结束。最后，她说：“我受够了你的拐弯抹角……还有其他一切！”
+    </chinese>
+  </step1>
+  <step2_translated>
+    <english_words>closure, drum, she</english_words>
+    <chinese_words>结束, 鼓, 她</chinese_words>
+  </step2_translated>
+  <step3_fixed>
+    <reasoning>没有需要修正的内容。</reasoning>
+    <english_words>closure, drum, she</english_words>
+    <chinese_words>结束, 鼓, 她</chinese_words>
+  </step3_fixed>
+</output_example6>
+
+<input_example7>
+lawsuit, divorced, determine
+</input_example7>
+<ouput_example7>
+  <step1>
+    <english>
+      I got divorced last year. The judge said he'd determine who gets the house in our lawsuit. Turns out, the bank does.
+    </english>
+    <chinese>
+      我去年离婚了。法官说他会在我们的诉讼中决定谁能得到房子。结果，银行得到了。
+    </chinese>
+  </step1>
+  <step2_translated>
+    <english_words>lawsuit, divorced, determine</english_words>
+    <chinese_words>诉讼, 离婚, 决定</chinese_words>
+  </step2_translated>
+  <step3_fixed>
+    <reasoning>没有需要修正的内容。</reasoning>
+    <english_words>lawsuit, divorced, determine</english_words>
+    <chinese_words>诉讼, 离婚, 决定</chinese_words>
+  </step3_fixed>
+</ouput_example7>
+
 <input>
   ${words}
 </input>`;
