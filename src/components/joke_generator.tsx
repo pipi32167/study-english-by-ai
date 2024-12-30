@@ -103,16 +103,20 @@ export default function JokeGenerator() {
           <option value="普通笑话">普通笑话</option>
           <option value="苏联笑话">苏联笑话</option>
           <option value="经济学家笑话">经济学家笑话</option>
-          <option value="程序员笑话">程序员笑话</option>
-          <option value="青年问禅师笑话">青年问禅师笑话</option>
+          <option value="Programmer humor style joke">Programmer humor style joke</option>
+          {/* <option value="青年问禅师笑话">青年问禅师笑话</option> */}
           {/* <option value="双关语笑话">双关语笑话</option> */}
           {/* <option value="一千零一夜故事">一千零一夜故事</option> */}
           {/* <option value="格林童话故事">格林童话故事</option> */}
           {/* <option value="笑林广记风格笑话">笑林广记风格笑话</option> */}
           <option value="Sickipedia style joke">Sickipedia style joke</option>
           <option value="Reddit style joke">Reddit style joke</option>
-          <option value="One Liner style joke">One Liner style joke</option>
+          <option value="One-liner joke">One-liner joke</option>
           <option value="Talk show style joke">Talk show style joke</option>
+          <option value="Knock-knock joke">Knock-knock joke</option>
+          <option value="Pun joke">Pun joke</option>
+          <option value="Anecdotal joke">Anecdotal joke</option>
+          <option value="Dad joke">Dad joke</option>
         </select>
         <button
           type="submit"

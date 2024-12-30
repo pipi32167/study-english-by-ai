@@ -189,6 +189,52 @@ lawsuit, divorced, determine
   </step3_fixed>
 </ouput_example7>
 
+<input_example8>
+field, accompany, spot
+</input_example8>
+<ouput_example8>
+  <step1>
+    <english>
+      A farmer and his wife were walking through their field when they spotted a UFO. The farmer excitedly said, "Quick, honey! Go get the camera. I'll stay here to accompany our alien visitors!" His wife replied, "Are you crazy? You go get the camera, and I'll stay here to spot the UFO." The farmer chuckled, "Nice try, dear. But the last time I left you alone in a field, you came back with a degree in crop circles!"
+    </english>
+    <chinese>
+      一个农夫和他的妻子在他们的田地里散步时，发现了一个不明飞行物。农夫兴奋地说："快，亲爱的！去拿相机。我留在这里陪伴我们的外星访客！"他的妻子回答说："你疯了吗？你去拿相机，我留在这里观察不明飞行物。"农夫笑着说："好主意，亲爱的。但是上次我把你一个人留在田里，你回来时就拿到了一个麦田圈学位！"
+    </chinese>
+  </step1>
+  <step2_translated>
+    <english_words>field, accompany, spot</english_words>
+    <chinese_words>田地, 陪伴, 发现</chinese_words>
+  </step2_translated>
+  <step3_fixed>
+    <reasoning>spot 在中文中被翻译成了两个不同的词语，一个是观察，一个是发现，需要补充完整。</reasoning>
+    <english_words>field, accompany, spot, spot</english_words>
+    <chinese_words>田地, 陪伴, 发现, 观察</chinese_words>
+  </step3_fixed>
+</ouput_example8>
+
+<input_example9>
+field, accompany, spot
+</input_example9>
+<ouput_example9>
+  <step1>
+    <english>
+      A couple was enjoying a picnic in a field when they spotted a rare bird. The husband excitedly said, "Honey, I'll accompany that bird to get a better look!" His wife replied, "Are you serious? You can barely spot the difference between a sparrow and an eagle." The husband chuckled, "Well, at least I can spot the difference between our anniversary and a regular Tuesday, unlike someone I know!"
+    </english>
+    <chinese>
+      一对夫妇在田野里野餐时发现了一只稀有鸟类。丈夫兴奋地说："亲爱的，我要跟着那只鸟去看个仔细！"他的妻子回答说："你认真的吗？你连麻雀和老鹰的区别都分不清。"丈夫笑着说："好吧，至少我能分清我们的结婚纪念日和普通的星期二，不像某些人！"
+    </chinese>
+  </step1>
+  <step2_translated>
+    <english_words>field, accompany, spot, spot</english_words>
+    <chinese_words>田地, 陪伴, 发现, 分清</chinese_words>
+  </step2_translated>
+  <step3_fixed>
+    <reasoning>spot 在文中还有另一种表达，bearly spot，翻译成中文是分不清。</reasoning>
+    <english_words>field, accompany, spot, spot, barely spot</english_words>
+    <chinese_words>田地, 陪伴, 发现, 分清, 分不清</chinese_words>
+  </step3_fixed>
+</ouput_example9>
+
 <input>
   ${words}
 </input>`;
