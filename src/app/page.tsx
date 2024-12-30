@@ -1,8 +1,8 @@
-import Form from "@/components/Form";
+import JokeGenerator from "@/components/joke_generator";
 
 export default function Home() {
   return (
 
-    <Form />
+    <JokeGenerator />
   );
 }

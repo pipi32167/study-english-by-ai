@@ -8,11 +8,14 @@ const router = createRouter<NextApiRequest, NextApiResponse>();
 
 router.get(async (req, res) => {
   try {
+    let { count } = req.query as { count: string };
+    count = count || '3';
+    const wordCount = parseInt(count as string, 10);
     const wordsFilePath = path.join(process.cwd(), 'public', 'words.txt');
     const wordsData = fs.readFileSync(wordsFilePath, 'utf-8');
     const wordsArray = wordsData.split(',').map(word => word.trim()).filter(word => word);
     const randomWords = [];
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < wordCount; i++) {
       const randomIndex = Math.floor(Math.random() * wordsArray.length);
       randomWords.push(wordsArray[randomIndex]);
     }

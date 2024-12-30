@@ -4,11 +4,15 @@
 
 
 
-## Soviet Joke
+## 预览图
 
 借鉴自马大哈翻译。
 
-![SovietJoke](public/SovietJoke.jpg)
+![joke](public/preview_images/joke.jpg)
+![sickipedia_style_joke](public/preview_images/sickipedia_style_joke.jpg)
+![sickipedia_style_joke2](public/preview_images/sickipedia_style_joke2.jpg)
+![one_liner_style_joke](public/preview_images/one_liner_style_joke.jpg)
+![soviet_joke](public/preview_images/soviet_joke.jpg)
 
 ## Getting Started
 

@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-export default function Home() {
+export default function JokeGenerator() {
   const [inputValue, setInputValue] = useState("");
   const [jokeType, setJokeType] = useState("苏联笑话"); // New state for joke type
   const [result, setResult] = useState("");
@@ -100,9 +100,19 @@ export default function Home() {
           onChange={(e) => setJokeType(e.target.value)}
           className="border p-2 rounded w-full"
         >
+          <option value="普通笑话">普通笑话</option>
           <option value="苏联笑话">苏联笑话</option>
           <option value="经济学家笑话">经济学家笑话</option>
           <option value="程序员笑话">程序员笑话</option>
+          <option value="青年问禅师笑话">青年问禅师笑话</option>
+          {/* <option value="双关语笑话">双关语笑话</option> */}
+          {/* <option value="一千零一夜故事">一千零一夜故事</option> */}
+          {/* <option value="格林童话故事">格林童话故事</option> */}
+          {/* <option value="笑林广记风格笑话">笑林广记风格笑话</option> */}
+          <option value="Sickipedia style joke">Sickipedia style joke</option>
+          <option value="Reddit style joke">Reddit style joke</option>
+          <option value="One Liner style joke">One Liner style joke</option>
+          <option value="Talk show style joke">Talk show style joke</option>
         </select>
         <button
           type="submit"

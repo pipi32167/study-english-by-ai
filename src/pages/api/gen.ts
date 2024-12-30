@@ -8,10 +8,15 @@ const router = createRouter<NextApiRequest, NextApiResponse>();
 async function generate(words: string, jokeType: string = "苏联笑话"): Promise<{ result: string, chineseResult: string, englishResult: string }> {
   const prompt = `
 <instruction>
-你是一个英语学习助手，你负责为用户生成一个${jokeType}，但是保留指定单词的英文格式。
+你是一个英语学习助手，你负责为用户生成一个${jokeType}，但是保留指定单词的英文格式。不用用完所有的单词。
+你的任务是：
   - step1: 生成中英文的${jokeType}。
   - step2: 从上一步的中文结果中，按指定单词的顺序，将英文单词翻译成中文。
-  - step3: 从上一步的结果中，检查中文和英文单词是否正确。其中中文单词必须是出现在中文结果中。如果用户输入的单词是在词组中，保留词组的格式。
+  - step3: 从上一步的结果中，检查中文和英文单词是否正确。其中中文单词必须是出现在中文结果中。仔细检查，因为中文同一个词语可能是不同的词性，对应就是不同的单词。
+    - 如果用户输入的单词是在词组中，保留词组的格式。
+    - 比如用户提供的单词是 \`supportive\`，翻译成\`支持的\`。
+    - step1 生成的英文句子是 \`my colleague is not supportive of my work\`，中文句子是\`我的同事不支持我的工作\`。
+    - 那么需要单词改为 \`supportive of\` 和 \`支持\`。
 输出格式参考output_example。输出格式为xml格式，最终结果放在result里。
 注意，例子都是苏联笑话，你应该生成指定的${jokeType}。
 注意，例子都是苏联笑话，你应该生成指定的${jokeType}。
@@ -40,14 +45,15 @@ run,walk,ride bicycle,sit,hike
     <chinese_words>跑步,步行,骑自行车,坐</chinese_words>
   </step2_translated>
   <step3_fixed>
+    <reasoning>step2 中缺少了 hike 这个单词</reasoning>
     <english_words>run,walk,ride bicycle,sit,hike</english_words>
     <chinese_words>跑步,步行,骑自行车,坐,徒步旅行</chinese_words>
   </step3_fixed>
 </output_example1>
 
-<input_example1>
+<input_example2>
 assign, neutral, beneficial, dominant, registration
-</input_example1>
+</input_example2>
 <output_example2>
   <step1>
     <english>
@@ -62,6 +68,7 @@ assign, neutral, beneficial, dominant, registration
     <chinese_words>分配,中立的,有利的,主要的,注册</chinese_words>
   </step2_translated>
   <step3_fixed>
+    <reasoning>step2 中 registration 没有出现在英文句子中，需要调整为 register</reasoning>
     <english_words>assign, neutral, beneficial, dominant party, register</english_words>
     <chinese_words>分配,中立的,有利的,执政党,注册</chinese_words>
   </step3_fixed>
@@ -84,6 +91,7 @@ candle, ownership, incentive, identical, reasonably
     <chinese_words>蜡烛,拥有,动力,一样的,相当</chinese_words>
   </step2_translated>
   <step3_fixed>
+    <reasoning>step2 中 ownership 没有出现在英文句子中，需要调整为 own</reasoning>
     <english_words>candle, own, incentive, identical, reasonably</english_words>
     <chinese_words>蜡烛,拥有,动力,一样,相当</chinese_words>
   </step3_fixed>
@@ -106,10 +114,34 @@ accuracy, deadline, signature, subsequent, devote
     <chinese_words>准确性,截止日期,签名,后续的,投入</chinese_words>
   </step2_translated>
   <step3_fixed>
+    <reasoning>step2 中 签名 没有出现在中文句子中，需要调整为 签个名</reasoning>
     <english_words>accuracy, deadline, signature, subsequent, devote</english_words>
     <chinese_words>准确性,截止日期,签个名,后续,投入</chinese_words>
   </step3_fixed>
 </output_example4>
+
+<input_example5>
+supportive, escalate, somebody
+</input_example5>
+<output_example5>
+  <step1>
+    <english>
+      In Soviet Russia, a worker complains to his boss, "Comrade, my colleague is not supportive of my work, and he keeps escalating every little problem to management!" The boss sighs, "Comrade, somebody has to take responsibility for the failures of the system.  It's easier to blame somebody else than to fix the problem."
+    </english>
+    <chinese>
+      在苏联俄罗斯，一个工人向他的老板抱怨：“同志，我的同事不支持我的工作，他总是把每一个小问题都升级到管理层！”老板叹了口气：“同志，总得有某人为体制的失败负责。责备别人比解决问题更容易。”
+    </chinese>
+  </step1>
+  <step2_translated>
+    <english_words>supportive, escalate, somebody</english_words>
+    <chinese_words>支持的,升级,某人</chinese_words>
+  </step2_translated>
+  <step3_fixed>
+    <reasoning>step2 中 支持的 没有出现在中文句子中，需要调整为 支持，同时调整单词 supportive 为词组 supportive of</reasoning>
+    <english_words>supportive of, escalate, somebody</english_words>
+    <chinese_words>支持,升级,某人</chinese_words>
+  </step3_fixed>
+</output_example5>
 <input>
   ${words}
 </input>`;
@@ -119,10 +151,10 @@ accuracy, deadline, signature, subsequent, devote
   console.log('result', result);
   const englishResult = getSection(result, 'english');
   const chineseResult = getSection(result, 'chinese');
-  const translatedResult = getSection(result, 'step3_fixed').split(',').map(word => word.trim());
+  const translatedResult = getSection(result, 'step3_fixed');
   console.log('translatedResult', translatedResult);
-  const englishWords = getSection(result, 'english_words').split(',').map(word => word.trim());
-  const chineseWords = getSection(result, 'chinese_words').split(',').map(word => word.trim());
+  const englishWords = getSection(translatedResult, 'english_words').split(',').map(word => word.trim());
+  const chineseWords = getSection(translatedResult, 'chinese_words').split(',').map(word => word.trim());
   console.log('englishWords', englishWords);
   console.log('chineseWords', chineseWords);
   result = chineseResult;
